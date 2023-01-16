@@ -1,0 +1,9 @@
+# dev
+black
+ipykernel
+ipywidgets
+ruff
+
+# test
+pytest
+pytest-watch
