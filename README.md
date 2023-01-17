@@ -23,7 +23,8 @@ There are also branches for:
 - `bin` scripts to assist with initializing the application and such
 - `src/dev_requirements.txt` dependencies used during development and testing
 - `src/requirements.txt` runtime dependencies
-- `src/app` the Python app
+- `src/app` the FastAPI application
+  - `src/app/api` the FastAPI routers
 - `src/test` the PyTest tests
 
 ## What's not included
@@ -36,7 +37,7 @@ I used to run my Python apps on Docker using Docker Compose, but I always ended 
 2. Run the init script `./bin/init` to set up the virtual environment etc.
 
 ```shell
-git clone git@github.com:urfolomeus/python-starter my-project
+git clone git@github.com:urfolomeus/python-starter -b fastapi my-project
 cd my-project
 rm -rf .git
 git init
@@ -51,11 +52,11 @@ The `./bin/init` script will create a `.envrc` file as a copy of the included `.
 
 ## Running the application
 
-Ensure that we are in the virtual environment and then run the code as a Python module.
+Ensure that we are in the virtual environment and then run the uvicorn server.
 
 ```shell
 source .venv/bin/activate # activate.fish if in a fish shell
-python -m src.app.main
+uvicorn app.main:app --reload
 ```
 
 ## Tests
