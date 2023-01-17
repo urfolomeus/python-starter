@@ -25,7 +25,11 @@ There are also branches for:
 - `src/requirements.txt` runtime dependencies
 - `src/app` the FastAPI application
   - `src/app/api` the FastAPI routers
+  - `src/app/models` the database model schemas
+  - `src/app/queries` the persistence layer
+  - `src/app/db.py` the database setup
 - `src/test` the PyTest tests
+- `docker-compose.yml` config for the postgres container
 
 ## What's not included
 
@@ -37,7 +41,7 @@ I used to run my Python apps on Docker using Docker Compose, but I always ended 
 2. Run the init script `./bin/init` to set up the virtual environment etc.
 
 ```shell
-git clone git@github.com:urfolomeus/python-starter -b fastapi my-project
+git clone git@github.com:urfolomeus/python-starter -b fastapi-pg my-project
 cd my-project
 rm -rf .git
 git init
@@ -52,6 +56,12 @@ The `./bin/init` script will create a `.envrc` file as a copy of the included `.
 
 ## Running the application
 
+Spin up the database.
+
+```shell
+docker compose up
+```
+
 Ensure that we are in the virtual environment and then run the uvicorn server.
 
 ```shell
@@ -62,3 +72,5 @@ uvicorn app.main:app --reload
 ## Tests
 
 Tests can be run manually with `pytest` or `pytest <path/to/file>`. Alternatively, we can use Pytest Watch to run the tests automatically when a file is changed with `ptw`.
+
+Note that the database container needs to be running for the tests to work. See [Running the application](#running-the-application).
