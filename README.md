@@ -45,6 +45,10 @@ git commit -m "Initial commit"
 ./bin/init
 ```
 
+## Environment
+
+The `./bin/init` script will create a `.envrc` file as a copy of the included `.envrc-example` file. This can be applied using a tool like [direnv](https://direnv.net/), or in any other way that you choose to apply environment variables. You may need to adjust some of the values before applying.
+
 ## Running the application
 
 Ensure that we are in the virtual environment and then run the code as a Python module.
