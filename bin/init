@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cp .envrc-example .envrc
+
 python -m venv .venv
 source .venv/bin/activate
 
