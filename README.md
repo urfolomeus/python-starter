@@ -56,7 +56,7 @@ The `./bin/init` script will create a `.envrc` file as a copy of the included `.
 
 ## Running the application
 
-Spin up the database.
+Spin up the database. We use Docker Compose to create a simple postgres server. We should adjust the environment variables in the `docker-compose.yml` file to the values that we'd like to use for our db user, password and database name. Any changes made to these environment variables should be reflected in the `DATABASE_URL` environment variable in our `.envrc` file.
 
 ```shell
 docker compose up
