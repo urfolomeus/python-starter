@@ -1,2 +1,6 @@
+asyncpg
+databases[postgresql]
 fastapi
+psycopg2-binary
+SQLAlchemy
 uvicorn[standard]
