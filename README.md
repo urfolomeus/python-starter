@@ -56,11 +56,15 @@ The `./bin/init` script will create a `.envrc` file as a copy of the included `.
 
 ## Running the application
 
-Spin up the database. We use Docker Compose to create a simple postgres server. We should adjust the environment variables in the `docker-compose.yml` file to the values that we'd like to use for our db user, password and database name. Any changes made to these environment variables should be reflected in the `DATABASE_URL` environment variable in our `.envrc` file.
+### Spinning up the database
+
+We use Docker Compose to create a simple Postgres server. We should adjust the environment variables in the `docker-compose.yml` file to the values that we'd like to use for our database user, password and name. Any changes made to these environment variables should be reflected in the `DATABASE_URL` environment variable in our `.envrc` file.
 
 ```shell
 docker compose up
 ```
+
+### Starting the application
 
 Ensure that we are in the virtual environment and then run the uvicorn server.
 
@@ -73,4 +77,4 @@ uvicorn app.main:app --reload
 
 Tests can be run manually with `pytest` or `pytest <path/to/file>`. Alternatively, we can use Pytest Watch to run the tests automatically when a file is changed with `ptw`.
 
-Note that the database container needs to be running for the tests to work. See [Running the application](#running-the-application).
+Note that the database container needs to be running for the tests to work. See [Spinning up the database](#spinning-up-the-database).
